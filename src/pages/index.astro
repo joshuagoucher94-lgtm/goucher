@@ -1,16 +1,13 @@
 ---
 import "../styles/global.css";
 import {
-  ArrowUpRight,
   BadgeCheck,
   BriefcaseBusiness,
   Check,
   ChevronRight,
-  CloudSun,
   Coffee,
   Headphones,
   Heart,
-  House,
   Landmark,
   Mail,
   MapPin,
@@ -25,15 +22,17 @@ const projects = [
   {
     name: "ClimasMerida.com",
     href: "https://climasmerida.com",
-    description: "Merida weather, made simple and local.",
-    icon: CloudSun,
-    tone: "bg-mango text-night",
+    description: "Air conditioning and minisplit services in Merida.",
+    icon: null,
+    logo: "/climas-merida-logo.webp",
+    tone: "bg-white text-night",
   },
   {
     name: "crisp.mx",
     href: "https://crisp.mx",
     description: "Clean payment links for Mexico businesses.",
     icon: Sparkles,
+    logo: null,
     tone: "bg-cream text-papaya",
   },
   {
@@ -41,29 +40,34 @@ const projects = [
     href: "https://yucatan.guide",
     description: "Useful travel notes and local finds.",
     icon: Landmark,
+    logo: null,
     tone: "bg-leaf text-white",
   },
   {
     name: "Riviera.guide",
     href: "https://riviera.guide",
-    description: "Riviera Maya guide, built for quick decisions.",
-    icon: Sun,
+    description: "Riviera Maya, self-guided.",
+    icon: null,
+    logo: null,
+    customIcon: "riviera",
     tone: "bg-plum text-white",
   },
   {
     name: "Campeche.guide",
     href: "https://campeche.guide",
     description: "Campeche guide and local travel ideas.",
-    icon: House,
+    icon: null,
+    logo: null,
+    customIcon: "campeche",
     tone: "bg-papaya text-white",
   },
 ];
 
 const proof = [
   { value: "97", label: "QA average", context: "Peek Pro", icon: BadgeCheck },
-  { value: "100%", label: "consecutive months", context: "Peek Pro", icon: ArrowUpRight },
-  { value: "8", label: "staff", context: "Tamp Culture", icon: UsersRound },
-  { value: "£210k", label: "annual sales", context: "Tamp Culture", icon: Coffee },
+  { value: "~6t", label: "coffee roasted", context: "Tamp Culture", icon: Coffee },
+  { value: "120", label: "coffees sold daily", context: "Tamp Culture", icon: Coffee },
+  { value: "8", label: "staff managed", context: "Tamp Culture", icon: UsersRound },
 ];
 
 const skills = [
@@ -71,6 +75,8 @@ const skills = [
   { label: "CRM / support tools", icon: MessageCircle },
   { label: "Onboarding", icon: UsersRound },
   { label: "Customer success", icon: Heart },
+  { label: "AI tools and workflow experiments", icon: Sparkles },
+  { label: "Bricks-and-mortar business operations", icon: BriefcaseBusiness },
   { label: "WordPress / Shopify ecommerce", icon: Sparkles },
   { label: "QuickBooks", icon: Check },
   { label: "Coffee equipment / parts sourcing", icon: Wrench },
@@ -80,11 +86,11 @@ const experience = [
   {
     company: "Peek Pro",
     role: "Senior L2 Technical Support",
-    dates: "June 2024 - Present",
+    dates: "June 2024 - May 2026",
     color: "bg-mango",
     details: [
       "Technical support across phone, email, and helpdesk for activity and rental travel operators.",
-      "Maintained a 97 QA average, including consecutive months at 100%.",
+      "Maintained a 97 QA average while troubleshooting partner issues across booking, payments, and operator workflows.",
       "Turned partner issues into clearer docs, onboarding moments, and product feedback.",
     ],
   },
@@ -95,8 +101,8 @@ const experience = [
     color: "bg-papaya",
     details: [
       "Built a specialty coffee business from a van to a custom-built high street kiosk.",
-      "Grew the operation to 8 staff, £210k annual sales, and 50-200 customers per day.",
-      "Ran the brand, operations, wholesale relationships, and WordPress ecommerce SEO reaching 5,000 unique visitors.",
+      "Ran the brand, culture, service, and bricks-and-mortar operations while managing a team of 8 staff.",
+      "Sold around 120 coffees a day and grew WordPress ecommerce SEO to 5,000 unique visitors per month.",
     ],
   },
 ];
@@ -113,6 +119,7 @@ const experience = [
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://goucher.xyz" />
     <meta name="theme-color" content="#FFC531" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>Joshua Goucher - an ideas guy</title>
   </head>
   <body>
@@ -167,7 +174,24 @@ const experience = [
                   rel="noreferrer"
                 >
                   <span class={`grid h-14 w-14 shrink-0 place-items-center rounded-[16px] sm:h-16 sm:w-16 sm:rounded-[18px] ${project.tone}`}>
-                    <Icon class="h-7 w-7 sm:h-8 sm:w-8" stroke-width="2.2" />
+                    {project.logo ? (
+                      <img class="max-h-10 w-12 object-contain sm:max-h-11 sm:w-14" src={project.logo} alt="" loading="lazy" />
+                    ) : project.customIcon === "riviera" ? (
+                      <svg class="h-8 w-8 sm:h-9 sm:w-9" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                        <circle cx="32" cy="14" r="6" stroke="currentColor" stroke-width="3" />
+                        <path d="M32 3v4M32 21v4M21 14h4M39 14h4M24.2 6.2l2.8 2.8M37 19l2.8 2.8" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+                        <path d="M14 39c4-7 6-14 6-23" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+                        <path d="M20 16c-5-2-9-1-13 3 5 0 8 1 11 4M20 16c4-4 9-5 15-2-5 2-8 4-11 8M12 42c4-2 8-2 12 0s8 2 12 0" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    ) : project.customIcon === "campeche" ? (
+                      <svg class="h-8 w-8 sm:h-9 sm:w-9" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                        <path d="M8 41h32M12 41V19h24v22M10 19h28L24 9 10 19Z" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M16 41V30a4 4 0 0 1 8 0v11M28 41V30a4 4 0 0 1 8 0v11M14 19v-6h6v6M28 19v-6h6v6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M22 25h4" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+                      </svg>
+                    ) : Icon ? (
+                      <Icon class="h-7 w-7 sm:h-8 sm:w-8" stroke-width="2.2" />
+                    ) : null}
                   </span>
                   <span class="min-w-0 flex-1">
                     <span class="block font-display text-xl font-bold leading-tight text-night sm:text-[1.45rem]">{project.name}</span>
@@ -229,7 +253,7 @@ const experience = [
       <section class="mt-6 rounded-[28px] border border-night/10 bg-cream/72 p-5 shadow-[0_12px_40px_rgba(11,13,20,0.06)] backdrop-blur sm:p-7 lg:mx-auto lg:max-w-3xl">
         <div class="flex items-center gap-3">
           <BriefcaseBusiness class="h-7 w-7 text-plum" stroke-width="2.1" />
-          <h2 class="font-display text-2xl font-bold text-night sm:text-3xl">What I bring</h2>
+          <h2 class="font-display text-2xl font-bold text-night sm:text-3xl">Working range</h2>
         </div>
         <div class="mt-5 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
           {skills.map((skill) => {
