@@ -1,4 +1,4 @@
-export default function middleware(req: Request) {
+export default function proxy(req: Request) {
   const country = req.headers.get("x-vercel-ip-country");
 
   if (country === "GB") {
