@@ -1,14 +1,11 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
-
-export function middleware(req: NextRequest) {
+export default function middleware(req: Request) {
   const country = req.headers.get("x-vercel-ip-country");
 
   if (country === "GB") {
-    return new NextResponse("Access denied", { status: 403 });
+    return new Response("Access denied", { status: 403 });
   }
 
-  return NextResponse.next();
+  return;
 }
 
 export const config = {
