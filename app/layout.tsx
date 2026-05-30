@@ -13,6 +13,14 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://goucher.xyz"),
   title: "Joshua Goucher - an ideas guy",
   description: "Joshua Goucher: ideas, indie web projects, technical support, customer experience, and operations.",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
   openGraph: {
     title: "Joshua Goucher - an ideas guy",
     description: "A mobile-first personal portfolio for Joshua Goucher, featuring indie web projects and experience highlights.",

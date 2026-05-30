@@ -12,8 +12,8 @@ export default function RootGateRedirect() {
   }, [router]);
 
   return (
-    <main className="grid min-h-screen place-items-center bg-night text-cream">
-      <p className="font-mono text-xs uppercase tracking-[0.34em] text-cream/60">Calibrating entry signal</p>
+    <main className="grid min-h-screen place-items-center bg-cream text-night">
+      <p className="font-mono text-xs uppercase tracking-[0.34em] text-night/60">Calibrating entry signal</p>
     </main>
   );
 }

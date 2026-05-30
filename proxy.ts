@@ -1,8 +1,10 @@
+import { NextResponse } from "next/server";
+
 export default function proxy(req: Request) {
   const country = req.headers.get("x-vercel-ip-country");
 
   if (country === "GB") {
-    return new Response("Access denied", { status: 403 });
+    return NextResponse.rewrite(new URL("/blocked", req.url));
   }
 
   return;
