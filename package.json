@@ -12,6 +12,7 @@
     "start": "next start -H 127.0.0.1"
   },
   "dependencies": {
+    "framer-motion": "^12.40.0",
     "lucide-react": "^1.14.0",
     "next": "^16.2.6",
     "react": "^19.2.6",
